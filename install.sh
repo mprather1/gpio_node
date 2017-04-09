@@ -7,15 +7,11 @@ fi
 
 echo "Creating file directories..." && \
 mkdir build && \
-mkdir build/static && \
 
 printf "\nInstalling packages...\n" && \
 yarn install && \
 
 printf "\nBuilding in progress...\nPlease wait...\n\n" && \
 npm run build && \
-
-printf "\nRunning preliminary tests...\n" && \
-npm -s test && \
 
 printf "All done...\n"
