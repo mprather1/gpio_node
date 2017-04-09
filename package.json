@@ -6,6 +6,13 @@
   "repository": "https://github.com/mprather1/gpio_node",
   "author": "Michael Prather",
   "license": "MIT",
+  "scripts": {
+    "start": "NODE_ENV=development PORT=55460 TZ='America/Chicago' sudo node build/app.js",
+    "dev": "NODE_ENV=development PORT=55460 TZ='America/Chicago' sudo nodemon build/app.js",
+    "test": "PORT=8001 TZ='America/Chicago' NODE_ENV=test sudo mocha build/app.js -t 10000",
+    "build": "babel -d build src",
+    "watch": "babel --watch -d build src | ts '[%Y-%m-%d %H:%M:%S]'"
+  },
   "devDependencies": {
     "babel-cli": "^6.24.0",
     "babel-preset-es2015-node6": "^0.4.0",
@@ -13,6 +20,7 @@
     "chai": "^3.5.0",
     "chai-http": "^3.0.0",
     "mocha": "^3.2.0",
+    "mock-fs": "^4.2.0",
     "standard": "^9.0.2"
   },
   "standard": {
@@ -29,5 +37,9 @@
   },
   "engines": {
     "node": ">=6"
-  }  
+  },
+  "dependencies": {
+    "rpi-gpio": "^0.7.0",
+    "winston-color": "^1.0.0"
+  }
 }
